@@ -861,9 +861,9 @@ section {
 /*--------------------------------------------------------------
 # servicesHome
 --------------------------------------------------------------*/
-.servicesHome {
-  /* padding-top: 10px; */
-}
+/* .servicesHome { */
+/* padding-top: 10px; */
+/* } */
 .servicesHome .box {
   padding: 50px 30px;
   border: 1px solid #ebebeb;
@@ -902,15 +902,15 @@ section {
   box-shadow: 0px 0 25px 0 rgb(0 0 0 / 10%);
   transform: translateY(-10px);
 }
-.servicesHome .box:hover p,
-.servicesHome .box:hover h4 a {
-  /* color: #cda45e; */
-}
-.servicesHome .box:hover span,
+/* .servicesHome .box:hover p,
+.servicesHome .box:hover h4 a { */
+/* color: #cda45e; */
+/* } */
+/* .servicesHome .box:hover span,
 .why-us .box:hover h4,
-.why-us .box:hover p {
-  /* color: #333; */
-}
+.why-us .box:hover p { */
+/* color: #333; */
+/* } */
 
 /*--------------------------------------------------------------
 # Clients
@@ -1939,3 +1939,9 @@ section {
 .navbar-mobile .nav-link.active {
   color: #cda45e !important;
 }
+
+/* @media (max-width: 1000px) {
+  .contact-info {
+    font-size: 11px !important;
+  }
+} */

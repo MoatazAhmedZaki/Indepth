@@ -82,6 +82,8 @@
           </li> -->
 
           <li><a class="nav-link scrollto active" href="contact.html">Contact Us</a></li>
+          <li><a class="nav-link scrollto " href="clients.html">Our Clients</a></li>
+
           <!-- <li><a href="#" class="get-started-btn scrollto">Get Started</a></li> -->
 
         </ul>
@@ -169,7 +171,7 @@
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required >
                 </div>
               </div>
               <div class="form-group mt-3">
@@ -202,7 +204,10 @@ myForm.addEventListener("submit" ,(e)=> {
 
 e.preventDefault()
 
-
+console.log("name:", myForm.name.value,
+		"email:" ,myForm.email.value,
+		"subject:" ,myForm.subject.value,
+    "message:" ,myForm.message.value)
 
 // JSON Object
 fetch('https://husseintest.ongoing-co.com/api/communicate', {
@@ -215,14 +220,25 @@ fetch('https://husseintest.ongoing-co.com/api/communicate', {
 
 	}),
 	headers: {
-		'Content-type': 'application/json; charset=UTF-8'
+    'content-type': 'application/json; charset=UTF-8'
 	}
-}).then(function (response) {
-    loading.style.display= "none"
-    sentMessage.style.display= "block"
 
-}).then(function (data) {
-	console.log(data);
+
+}).then(function (response) {
+  if(response.status == 200){
+                console.log("su" ,response)
+               loading.style.display= "none"
+  sentMessage.style.display= "block"
+  errorMessage.style.display= "none"
+
+              }
+              else{
+                loading.style.display= "none"
+  errorMessage.style.display= "block"
+  sentMessage.style.display= "none"
+
+              }
+
 }).catch(function (error) {
 	console.warn('Something went wrong.', error);
   loading.style.display= "none"
@@ -282,6 +298,8 @@ fetch('https://husseintest.ongoing-co.com/api/communicate', {
             <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="services.html">Services</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="contact.html" class="active">Contact Us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="clients.html">Our Clients</a></li>
+
           </ul>
         </div>
 
@@ -305,7 +323,7 @@ fetch('https://husseintest.ongoing-co.com/api/communicate', {
             <div class="sent-message alert alert-success" id="sent-message2">You have successfully subscribed. Thank you!</div>
           <form id="SubscribeForm">
           
-            <input type="email" name="email"><input type="submit" value="Subscribe">
+            <input type="email" name="email"><input type="submit" value="Subscribe" required>
           </form>
 
           <script>
@@ -323,7 +341,8 @@ const sentMessage = document.getElementById("sent-message2")
             e.preventDefault()
             
             
-            
+            loading.style.display= "black"
+
             // JSON Object
             fetch('https://husseintest.ongoing-co.com/api/subscribe', {
               method: 'POST',
@@ -331,12 +350,23 @@ const sentMessage = document.getElementById("sent-message2")
                 email: myForm2.email.value,
               }),
               headers: {
-                'Content-type': 'application/json; charset=UTF-8'
+                'content-type': 'application/json; charset=UTF-8'
               }
             }).then(function (response) {
-               console.log("su" ,response)
+             if(response.status == 200){
+                console.log("su" ,response)
                loading.style.display= "none"
   sentMessage.style.display= "block"
+  errorMessage.style.display= "none"
+
+              }
+              else{
+                loading.style.display= "none"
+  errorMessage.style.display= "block"
+  sentMessage.style.display= "none"
+
+              }
+              
             
             }).then(function (data) {
               console.log("data",data);

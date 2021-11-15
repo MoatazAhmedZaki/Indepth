@@ -82,6 +82,8 @@
           </li> -->
 
           <li><a class="nav-link scrollto" href="contact.html">Contact Us</a></li>
+          <li><a class="nav-link scrollto " href="clients.html">Our Clients</a></li>
+
           <!-- <li><a href="#" class="get-started-btn scrollto">Get Started</a></li> -->
 
         </ul>
@@ -124,8 +126,14 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
             <div class="box">
-              <span>01</span>
-              <h4><a href="">Strategic direction consulting</a></h4>
+             
+
+
+              <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg" alt="" class="img-fluid"/>
+              <span  class="mt-2"> 01 </span> 
+              <h4 class="mt-0">
+
+            <a href="">Strategic direction consulting</a></h4>
               <p>Our top priority is to help your businesses grow, overcoming challenges and boost your business
                 performance</p>
             </div>
@@ -134,8 +142,9 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up"
             data-aos-delay="150">
             <div class="box">
-              <span>02</span>
-              <h4><a href="">Execution direction consulting</a></h4>
+            <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg" alt="" class="img-fluid"/>
+            <span  class="mt-2"> 02 </span> 
+            <h4 class="mt-0"><a href="">Execution direction consulting</a></h4>
               <p>Our top priority is to help your businesses grow, overcoming challenges and boost your business
                 performance</p>
             </div>
@@ -144,8 +153,9 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up"
             data-aos-delay="300">
             <div class="box">
-              <span>03</span>
-              <h4><a href="">Human resources consulting</a></h4>
+              <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg" alt="" class="img-fluid"/>
+              <span  class="mt-2"> 03 </span> 
+              <h4 class="mt-0"><a href="">Human resources consulting</a></h4>
               <p>Our top priority is to help your businesses grow, overcoming challenges and boost your business
                 performance</p>
             </div>
@@ -153,8 +163,9 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
             <div class="box">
-              <span>04</span>
-              <h4><a href="">Balance scored card solution</a></h4>
+              <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg" alt="" class="img-fluid"/>
+              <span  class="mt-2"> 04 </span> 
+              <h4 class="mt-0"><a href="">Balance scored card solution</a></h4>
               <p>Our top priority is to help your businesses grow, overcoming challenges and boost your business
                 performance</p>
             </div>
@@ -162,8 +173,9 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
             <div class="box">
-              <span>05</span>
-              <h4><a href="">Auditing services</a></h4>
+              <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg" alt="" class="img-fluid"/>
+              <span  class="mt-2"> 05 </span> 
+              <h4 class="mt-0"><a href="">Auditing services</a></h4>
               <p>Our top priority is to help your businesses grow, overcoming challenges and boost your business
                 performance</p>
             </div>
@@ -171,8 +183,9 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
             <div class="box">
-              <span>06</span>
-              <h4><a href="">Corporate Governance</a></h4>
+              <img src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg" alt="" class="img-fluid"/>
+              <span  class="mt-2"> 06 </span> 
+              <h4 class="mt-0"><a href="">Corporate Governance</a></h4>
               <p>Our top priority is to help your businesses grow, overcoming challenges and boost your business
                 performance</p>
             </div>
@@ -185,6 +198,7 @@
 
 
   </main><!-- End #main -->
+
  <!-- ======= Footer ======= -->
  <footer id="footer">
   <div class="footer-top">
@@ -216,6 +230,8 @@
             <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="services.html" class="active">Services</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="contact.html" >Contact Us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="clients.html">Our Clients</a></li>
+
           </ul>
         </div>
 
@@ -257,7 +273,8 @@ const sentMessage = document.getElementById("sent-message2")
             e.preventDefault()
             
             
-            
+            loading.style.display= "black"
+
             // JSON Object
             fetch('https://husseintest.ongoing-co.com/api/subscribe', {
               method: 'POST',
@@ -265,12 +282,23 @@ const sentMessage = document.getElementById("sent-message2")
                 email: myForm2.email.value,
               }),
               headers: {
-                'Content-type': 'application/json; charset=UTF-8'
+                'content-type': 'application/json; charset=UTF-8'
               }
             }).then(function (response) {
-               console.log("su" ,response)
+             if(response.status == 200){
+                console.log("su" ,response)
                loading.style.display= "none"
   sentMessage.style.display= "block"
+  errorMessage.style.display= "none"
+
+              }
+              else{
+                loading.style.display= "none"
+  errorMessage.style.display= "block"
+  sentMessage.style.display= "none"
+
+              }
+              
             
             }).then(function (data) {
               console.log("data",data);
